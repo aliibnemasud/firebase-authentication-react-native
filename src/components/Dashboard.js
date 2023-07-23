@@ -1,16 +1,33 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
-const Dashboard = ({navigation}) => {
+const Dashboard = ({ navigation }) => {
+  const [user, setUserData] = useState({});
   const auth = getAuth();
-  console.log(auth.currentUser.uid);
+
+  const getData = async () => {
+    const q = query(
+      collection(db, "users"),
+      where("uid", "==", auth.currentUser.uid)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      setUserData(doc.data());
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleSignOut = async () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigation.navigate('SignIn')
+        navigation.navigate("SignIn");
       })
       .catch((error) => {
         console.log(error);
@@ -19,7 +36,10 @@ const Dashboard = ({navigation}) => {
 
   return (
     <View style={style.container}>
-      <Text style={style.heading}>Welcome {auth.currentUser.email} </Text>
+      <Text style={style.heading}>
+        Welcome{" "}
+        <Text style={{ color: "green", fontWeight: "bold" }}>{user?.name}</Text>{" "}
+      </Text>
 
       <TouchableOpacity
         onPress={handleSignOut}

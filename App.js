@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import SignUp from "./src/components/SignUp";
 import SignIn from "./src/components/SignIn";
 import { NavigationContainer } from "@react-navigation/native";
@@ -14,7 +13,6 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-
       </Stack.Navigator>
     </NavigationContainer>
   );
