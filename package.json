@@ -1,5 +1,5 @@
 {
-  "name": "firebaseauthproject",
+  "name": "firebase-authentication-react-native",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -9,8 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^18.3.0",
+    "@react-native-firebase/auth": "^18.3.0",
+    "@react-native-firebase/firestore": "^18.3.0",
     "expo": "~48.0.18",
     "expo-status-bar": "~1.4.4",
+    "firebase": "^10.1.0",
     "react": "18.2.0",
     "react-native": "0.71.8"
   },
