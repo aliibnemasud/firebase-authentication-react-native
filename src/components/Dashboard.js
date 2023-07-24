@@ -42,11 +42,20 @@ const Dashboard = ({ navigation }) => {
       </Text>
 
       <TouchableOpacity
+        onPress={() => navigation.navigate("Music")}
+        style={[style.button, { backgroundColor: "yellow", fontWeight: "bold", marginBottom: 5 }]}
+      >
+        <Text style={{ textAlign: "center", color: "blue" }}> Play Music</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
         onPress={handleSignOut}
         style={[style.button, { backgroundColor: "black", fontWeight: "bold" }]}
       >
         <Text style={{ textAlign: "center", color: "white" }}> Sign Out</Text>
       </TouchableOpacity>
+
+
     </View>
   );
 };
