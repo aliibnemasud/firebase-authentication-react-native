@@ -93,6 +93,12 @@ const SignUp = ({ navigation }) => {
       >
         <Text style={{ textAlign: "center", color: "green" }}> Sign In</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress={()=> navigation.navigate('Player')} style={style.button}>
+        <Text style={{ textAlign: "center", color: "white" }}> Play Music</Text>
+      </TouchableOpacity>
+
+      
     </View>
   );
 };

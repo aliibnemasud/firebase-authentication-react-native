@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Dashboard from "./src/components/Dashboard";
 import PlayMusic from "./src/music/PlayMusic";
+import Player from "./src/music/Player";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -15,6 +16,7 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Music" component={PlayMusic} />
+        <Stack.Screen name="Player" component={PlayMusic} />
       </Stack.Navigator>
     </NavigationContainer>
   );
